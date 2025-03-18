@@ -23,4 +23,4 @@ docker compose up --build
 
 ### 3. Test
 
-And that's it. The server is exposed on port 3000, and ready to go. I know the instructions said not to use a database, but with docker it required 0 additional setup build with the schema being automatically pushed to it at build time!
+And that's it. The server is exposed on port 3000, and ready to go. I know the instructions said not to use a database, but with docker it required 0 additional setup to build -- the schema is automatically pushed at build time!
