@@ -12,7 +12,7 @@
 ```bash
 git clone https://github.com/dbrun3/receipt-processor-challenge.git
 
-git cd receipt-processor-challenge
+cd receipt-processor-challenge
 ```
 
 ### 2. Spin up
