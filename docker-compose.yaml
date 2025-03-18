@@ -1,0 +1,36 @@
+services:
+  server:
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - serverNetwork
+
+  # no volumes, persistance not required
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    container_name: db
+    environment:
+      - POSTGRES_PASSWORD=mypassword
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - serverNetwork
+
+networks:
+  serverNetwork:
+    driver: bridge
+

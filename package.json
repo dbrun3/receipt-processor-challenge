@@ -1,0 +1,32 @@
+{
+  "name": "receipt-processor-challenge",
+  "version": "1.0.0",
+  "description": "fetch rewards oa",
+  "main": "server.ts",
+  "scripts": {
+    "server": "npx tsx server.ts",
+    "setup": "npx drizzle-kit push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbrun3/receipt-processor-challenge.git"
+  },
+  "author": "Dylan Brunelle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbrun3/receipt-processor-challenge/issues"
+  },
+  "homepage": "https://github.com/dbrun3/receipt-processor-challenge#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.40.1",
+    "express": "^4.21.2",
+    "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/pg": "^8.11.11",
+    "drizzle-kit": "^0.30.5"
+  }
+}
