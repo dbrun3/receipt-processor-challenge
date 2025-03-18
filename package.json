@@ -22,11 +22,11 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.1",
     "express": "^4.21.2",
-    "pg": "^8.14.1"
+    "pg": "^8.14.1",
+    "drizzle-kit": "^0.30.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/pg": "^8.11.11",
-    "drizzle-kit": "^0.30.5"
+    "@types/pg": "^8.11.11"
   }
 }
