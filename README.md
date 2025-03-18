@@ -20,6 +20,7 @@ cd receipt-processor-challenge
 ```bash
 docker compose up --build
 ```
+This step might take awhile, the server will announce its ready with `Receipt processor listening on port 3000`
 
 ### 3. Test
 
