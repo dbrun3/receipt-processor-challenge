@@ -8,6 +8,11 @@ import pointCalculator from '../util/pointsCalculator';
 function receiptsRouter() {
     const router = express.Router();
 
+    /*
+    *   Takes an InputReceipt and turns it into a Receipt,
+    *   inserting it into a database, then returning the newly
+    *   generated UUID
+    */
     router.post('/process', async (req: Request, res: Response) => {
         try {
             const rawReceipt = req.body as InputReceipt;
@@ -30,20 +35,25 @@ function receiptsRouter() {
             }
             res.status(200).json(result[0]);
         } catch (err: unknown) {
-            res.status(500).json(err);
+            res.status(400).json("The receipt is invalid.");
         }
     });
 
+    /*
+    *   Takes an id and pulls the corresponding receipt
+    *   from the db. It performs the point calculation described in the doc
+    *   generated UUID
+    */
     router.get('/:id/points', async (req: Request, res: Response) => {
         try {
             const selectedId = req.params.id;
             const result  = await db.select().from(receipts).where(eq(receipts.id, selectedId));
             if(!result || result.length !== 1) {
-                console.error("Failed to retrieve from database");
-                throw Error("Failed to retrieve from database")
+                res.status(404).json("No receipt found for that ID.");
+                return;
             }
             const {id, ...rest} = result[0];
-            const receipt = rest as Receipt
+            const receipt = rest as Receipt;
             const points = pointCalculator(receipt);
 
             console.log("Receipt received:",receipt);
